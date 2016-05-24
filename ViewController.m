@@ -11,7 +11,7 @@
 @interface ViewController ()<MCSessionDelegate,MCAdvertiserAssistantDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) MCSession *session;
 @property (nonatomic, strong) MCAdvertiserAssistant *advertiser;
-@property (nonatomic, strong) UIView *backView;
+
 
 //@property (nonatomic, strong) GKSession *session;
 //@property (nonatomic, strong) GKPeerPickerController *pc;
@@ -110,12 +110,6 @@
     }
     return _advertiser;
 }
-- (UIView *)backView{
-    if (!_backView) {
-        _backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
-        _backView.backgroundColor = [UIColor purpleColor];
-    }
-    return _backView;
-}
+
 
 @end
