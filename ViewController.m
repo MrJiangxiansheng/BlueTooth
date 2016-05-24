@@ -82,9 +82,9 @@
 
 
 - (IBAction)imageClick:(id)sender {
-    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
-    ipc.delegate = self;
-    [self presentViewController:ipc animated:YES completion:nil];
+    UIImagePickerController *i = [[UIImagePickerController alloc] init];
+    i.delegate = self;
+    [self presentViewController:i animated:YES completion:nil];
 }
 
 - (IBAction)sendClick:(id)sender {
