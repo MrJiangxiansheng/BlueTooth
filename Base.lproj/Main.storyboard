@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="4Ia-m2-njp">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="NYb-7O-5vU">
+            <objects>
+                <viewController id="eZV-8q-T1F" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CuJ-qg-UEY"/>
+                        <viewControllerLayoutGuide type="bottom" id="cfs-Ye-i0y"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oWV-bk-clv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RsT-b3-xiH">
+                        <barButtonItem key="leftBarButtonItem" title="广播" id="Ni7-kV-k8g"/>
+                        <barButtonItem key="rightBarButtonItem" title="图片" id="Jun-AO-6EU"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="889-iY-htC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-766" y="573"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a3Z-mC-RFe">
+                                <rect key="frame" x="180" y="139" width="240" height="269"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="269" id="Up1-Ul-elu"/>
+                                    <constraint firstAttribute="width" constant="240" id="qzB-ft-xtG"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucy-yu-YeD">
+                                <rect key="frame" x="277" y="457" width="47" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="47" id="LHP-Mx-3Vn"/>
+                                    <constraint firstAttribute="height" constant="30" id="YlQ-Ul-KT3"/>
+                                </constraints>
+                                <state key="normal" title="重连"/>
+                                <connections>
+                                    <action selector="reLink:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Iz-pB-hcQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yb-ce-CyO">
+                                <rect key="frame" x="177" y="506" width="246" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="VQV-8A-bIr"/>
+                                    <constraint firstAttribute="width" constant="246" id="apO-4Q-HUJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a3Z-mC-RFe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="04P-vQ-k0q"/>
+                            <constraint firstItem="6yb-ce-CyO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="D4t-qe-JvD"/>
+                            <constraint firstItem="6yb-ce-CyO" firstAttribute="top" secondItem="Ucy-yu-YeD" secondAttribute="bottom" constant="19" id="ERS-eW-7Ec"/>
+                            <constraint firstItem="Ucy-yu-YeD" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GAR-np-Nry"/>
+                            <constraint firstItem="Ucy-yu-YeD" firstAttribute="top" secondItem="a3Z-mC-RFe" secondAttribute="bottom" constant="49" id="J7N-rX-sX8"/>
+                            <constraint firstItem="a3Z-mC-RFe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="75" id="z8j-dS-pWi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="QEx-rC-szs">
+                        <barButtonItem key="leftBarButtonItem" title="发送" id="bxQ-LB-Cwe">
+                            <connections>
+                                <action selector="sendClick:" destination="BYZ-38-t0r" id="aBc-dk-brN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="图片" id="89r-0r-B89">
+                            <connections>
+                                <action selector="imageClick:" destination="BYZ-38-t0r" id="AgZ-Se-pNk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="showImageView" destination="a3Z-mC-RFe" id="T2e-7X-ps6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-732" y="-70"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lYW-2V-M6D">
+            <objects>
+                <navigationController id="4Ia-m2-njp" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ba8-iK-jB6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="nIq-yU-Rdq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PhZ-HA-jdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1176" y="-77"/>
+        </scene>
+    </scenes>
+</document>
