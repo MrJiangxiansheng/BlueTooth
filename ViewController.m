@@ -11,7 +11,7 @@
 @interface ViewController ()<MCSessionDelegate,MCAdvertiserAssistantDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property (nonatomic, strong) MCSession *session;
 @property (nonatomic, strong) MCAdvertiserAssistant *advertiser;
-
+@property (nonatomic, strong) UIButton *button;
 
 //@property (nonatomic, strong) GKSession *session;
 //@property (nonatomic, strong) GKPeerPickerController *pc;
@@ -109,6 +109,22 @@
         _advertiser.delegate = self;
     }
     return _advertiser;
+}
+- (UIButton *)button{
+    if (!_button) {
+        _button = ({
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setTitle:@"" forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+            //        [btn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+            //        [btn setImage:[UIImage imageNamed:@""] forState:UIControlStateSelected];
+            SEL selector = @selector(reLink:);
+            [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+            btn;
+        });
+    }
+    return _button;
 }
 
 
