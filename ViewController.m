@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
-@interface ViewController ()<MCSessionDelegate,MCAdvertiserAssistantDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface ViewController ()<MCSessionDelegate,MCAdvertiserAssistantDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MCSession *session;
 @property (nonatomic, strong) MCAdvertiserAssistant *advertiser;
-
+@property (nonatomic, strong) UIButton *button;
+@property (nonatomic, strong) UITableView *tableView;
 
 //@property (nonatomic, strong) GKSession *session;
 //@property (nonatomic, strong) GKPeerPickerController *pc;
@@ -80,11 +81,19 @@
 }
 
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 10;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+    return cell;
+}
+
 
 - (IBAction)imageClick:(id)sender {
-    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
-    ipc.delegate = self;
-    [self presentViewController:ipc animated:YES completion:nil];
+    UIImagePickerController *i = [[UIImagePickerController alloc] init];
+    i.delegate = self;
+    [self presentViewController:i animated:YES completion:nil];
 }
 
 - (IBAction)sendClick:(id)sender {
@@ -109,6 +118,31 @@
         _advertiser.delegate = self;
     }
     return _advertiser;
+}
+- (UIButton *)button{
+    if (!_button) {
+        _button = ({
+            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [btn setTitle:@"" forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+            //        [btn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+            //        [btn setImage:[UIImage imageNamed:@""] forState:UIControlStateSelected];
+            SEL selector = @selector(reLink:);
+            [btn addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
+            btn;
+        });
+    }
+    return _button;
+}
+- (UITableView *)tableView{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView.rowHeight = 100;
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+    }
+    return _tableView;
 }
 
 
