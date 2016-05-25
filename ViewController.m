@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
-@interface ViewController ()<MCSessionDelegate,MCAdvertiserAssistantDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+@interface ViewController ()<MCSessionDelegate,MCAdvertiserAssistantDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) MCSession *session;
 @property (nonatomic, strong) MCAdvertiserAssistant *advertiser;
 @property (nonatomic, strong) UIButton *button;
+@property (nonatomic, strong) UITableView *tableView;
 
 //@property (nonatomic, strong) GKSession *session;
 //@property (nonatomic, strong) GKPeerPickerController *pc;
@@ -80,6 +81,14 @@
 }
 
 
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 10;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
+    return cell;
+}
+
 
 - (IBAction)imageClick:(id)sender {
     UIImagePickerController *i = [[UIImagePickerController alloc] init];
@@ -125,6 +134,15 @@
         });
     }
     return _button;
+}
+- (UITableView *)tableView{
+    if (!_tableView) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView.rowHeight = 100;
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+    }
+    return _tableView;
 }
 
 
