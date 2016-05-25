@@ -103,6 +103,9 @@
    
 //    [self.pc show];
 }
+- (void)setMyDataModel{
+    
+}
 
 - (MCSession *)session{
     if (!_session) {
